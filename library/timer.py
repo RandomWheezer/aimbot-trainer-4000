@@ -1,15 +1,24 @@
 import time
 
-from library.canvas import Canvas
-from library.gamemanager import Manager
-from library.target import Target
+from library import gamemanager
+from main import Canvas
+
+# Create an instance of Canvas
+canvas_instance = Canvas()
+
+root = Tk()
+canvas = Canvas(root)
+canvas.pack()
+
+while gamemanager.timer > 0:
+    timer = 30
 
 for i in range(30):
     time.sleep(1)
-    gamemanager.timer -= 1
+    canvas_instance.create_text(400, 300, text="Game Over", font=("Arial", 50))
 
-    if timer =< 0:
+    if gamemanager.timer <= 0:
         canvas.delete("all")
-        canvas.create_text(400, 300, text="Game Over", font=("Arial", 50))
+        Canvas.create_text(400, 300, text="Game Over", font=("Arial", 50))
         time.sleep(3)
         break
