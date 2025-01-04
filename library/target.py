@@ -12,7 +12,7 @@ from main import Canvas
 class Target:
     def __init__(self, canvas):
         self.canvas = canvas
-        self.target = self.canvas.create_oval(20, 20, 35, 35, fill="red")
+        self.target = canvas.create_oval(20, 20, 35, 35, fill="red")
         # define game manager variables
         self.score = self.score
 
@@ -20,6 +20,7 @@ class Target:
         x = random.randint(0, 800)
         y = random.randint(0, 600)
         self.canvas.coords(self.target, x, y, x+20, y+20)
+        self.target.pack()
 
     def hit(self, event):
         x, y = event.x, event.y

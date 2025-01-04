@@ -1,26 +1,23 @@
 # main file
 
-import tkinter
-
-# adding important modules
+import tkinter as tk
 
 
-# import window (canvas) and game manager
 
 class Canvas:
-    def __init__(self, width, height, bg, score_x=700, score_y=500, time_x=700, time_y=470):
-        self.game = tkinter.Tk()
+    def __init__(self, width, height, bg, score, timer):
+        self.game = tk.Tk()
         self.game.title("Aim Trainer 4000")
         self.game.geometry(f"{width}x{height}")
-        self.score = 0
-        self.timer = 60
+        self.score = self.score
+        self.timer = self.timer
 
 
-        self.canvas = tkinter.Canvas(self.game, width=width, height=height, bg=bg)
+        self.canvas = tk.Canvas(self.game, width=width, height=height, bg=bg)
         self.canvas.pack()
 
-        self.canvas.create_text(score_x, score_y, text=f"score: {self.score}", fill="white", font=("Arial", 20))
-        self.canvas.create_text(time_x, time_y, text=f"time: {self.timer}", fill="white", font=("Arial", 20))
+        self.canvas.create_text(700, 500, text=f"score: {self.score}", fill="white", font=("Arial", 20))
+        self.canvas.create_text(700, 470, text=f"time: {self.timer}", fill="white", font=("Arial", 20))
 
 # mainloop lets the window run
 if __name__ == "__main__":
